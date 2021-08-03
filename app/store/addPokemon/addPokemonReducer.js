@@ -16,9 +16,9 @@ const receivedData = (data) => ({
     data
 })
 
-export const defState = {
+const defState = {
     fetching: true,
-    data : {}
+    data : null
 }
 
 export default function pokemonReducer (state= defState, action) {
