@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import ExampleReducer from "./example/reducer";
 import pokemonReducer from "./addPokemon/addPokemonReducer";
 import pokemonListReducer from "./pokemonList/pokemonListReducer";
+import pokemonDataReducer from "./chosenPokemons/chosenPokemons";
 
 const reducers = combineReducers({
   exampleState: ExampleReducer,
   pokemonReducer: pokemonReducer,
   pokemonList: pokemonListReducer,
+  pokemonData: pokemonDataReducer,
 });
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

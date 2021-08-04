@@ -3,10 +3,7 @@ import api from "../../utils/api"
 export const fetchList = () => async(dispatch) => {
     dispatch(requestingList);
     const list = await api.get("https://pokeapi.co/api/v2/pokemon?limit=227");
-    const trial = await api.get("https://pokeapi.co/api/v2/pokemon/1/");
-    console.log(trial)
     dispatch(receivedList(list));
-    // console.log(list);
 }
 
 const REQUESTING_LIST = 'REQUESTING_LIST';
