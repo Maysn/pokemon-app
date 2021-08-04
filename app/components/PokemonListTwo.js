@@ -19,7 +19,7 @@ function PokemonListTwo(props) {
     }
     return (
         <div> 
-            <label htmlFor="pokemons">Choose Your Pokemon!</label>
+            <label htmlFor="pokemons">Choose second Pokemon!</label>
             {listOfPokemons &&  <select onChange={(e) => fetchPokemonData(e.target.value)} name="pokemons" id="pokemons">
                 <option value="-" hidden>-</option>
                 {pokemonOptions}

@@ -23,13 +23,13 @@ function PokemonApp() {
             "LOADING..." :
             <div> 
                 <img src={pokemonOne.sprites?.other["official-artwork"].front_default}/>
+                <PokemonList/>
                 <img src={pokemonTwo.sprites?.other["official-artwork"].front_default}/>
                 {/* <img src={pokemonOne.sprites.other.dream_world.front_default}/>
                 <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_shiny}/>
                 <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_default}/>
                 <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_shiny}/>
                 <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_default}/> */}
-                <PokemonList/>
                 <PokemonListTwo/>
             </div>}
         </div>
