@@ -1,5 +1,5 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
-import thunk from 'redux-thunk';
+import thunk from "redux-thunk";
 import ExampleReducer from "./example/reducer";
 import pokemonReducer from "./addPokemon/addPokemonReducer";
 import pokemonListReducer from "./pokemonList/pokemonListReducer";
@@ -21,14 +21,6 @@ const composeEnhancers =
 const enhancer = composeEnhancers(applyMiddleware(thunk));
 // other store enhancers if any
 export const store = createStore(reducers, enhancer);
-
-
-
-
-
-
-
-
 
 // import { createStore, combineReducers, compose } from "redux";
 // import ExampleReducer from "./example/reducer";

@@ -2,8 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import api from "../../utils/api";
 import { pickedPokemonTwo } from "../../store/chosenPokemons/chosenPokemons";
+import PokemonInfo from "Components/PokemonInfo";
+import DropdownList from "Components/DropdownList";
 
-function PokemonListTwo(props) {
+function PokemonTwo(props) {
   const dispatch = useDispatch();
   const listOfPokemons = useSelector((state) => state.pokemonList.list);
   const pokemonTwo = useSelector((state) => state.pokemonData.pokemonTwo);
@@ -22,19 +24,14 @@ function PokemonListTwo(props) {
     <div>
       {/* <label htmlFor="pokemons">Choose second Pokemon!</label> */}
       {listOfPokemons && (
-        <select
-          onChange={(e) => fetchPokemonData(e.target.value)}
-          name="pokemons"
-          id="pokemons"
-        >
-          <option value="Pokemon two" hidden>
-            Pokemon two
-          </option>
-          {pokemonOptions}
-        </select>
+        <DropdownList
+          fetchPokemonData={fetchPokemonData}
+          pokemonOptions={pokemonOptions}
+        />
       )}
+      <PokemonInfo pokemon={pokemonTwo} />
     </div>
   );
 }
 
-export default PokemonListTwo;
+export default PokemonTwo;

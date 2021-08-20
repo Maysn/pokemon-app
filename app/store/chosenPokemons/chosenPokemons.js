@@ -1,5 +1,6 @@
 export const PICKED_POKEMON_ONE = "PICKED_POKEMON_ONE";
 export const PICKED_POKEMON_TWO = "PICKED_POKEMON_TWO";
+export const FIGHT = "FIGHT";
 
 export const pickedPokemonOne = (pokemonOneData) => ({
   type: PICKED_POKEMON_ONE,
@@ -10,9 +11,15 @@ export const pickedPokemonTwo = (pokemonTwoData) => ({
   pokemonTwoData,
 });
 
+export const fighting = (updatedFirstPokemon, updatedSecondPokemon) => ({
+  type: FIGHT,
+  updatedFirstPokemon,
+  updatedSecondPokemon,
+});
+
 const initialState = {
-  pokemonOne: {},
-  pokemonTwo: {},
+  pokemonOne: null,
+  pokemonTwo: null,
 };
 
 export default function pokemonDataReducer(state = initialState, action) {
@@ -21,6 +28,12 @@ export default function pokemonDataReducer(state = initialState, action) {
       return { ...state, pokemonOne: action.pokemonOneData };
     case PICKED_POKEMON_TWO:
       return { ...state, pokemonTwo: action.pokemonTwoData };
+    case FIGHT:
+      return {
+        ...state,
+        pokemonOne: action.updatedFirstPokemon,
+        pokemonTwo: action.updatedSecondPokemon,
+      };
     default:
       return state;
   }

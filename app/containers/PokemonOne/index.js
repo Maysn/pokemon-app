@@ -2,11 +2,13 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import api from "../../utils/api";
 import { pickedPokemonOne } from "../../store/chosenPokemons/chosenPokemons";
-import PokemonInfo from "../../components/PokemonInfo";
+import PokemonInfo from "Components/PokemonInfo";
+import DropdownList from "Components/DropdownList";
 
-function PokemonList(props) {
+function PokemonOne(props) {
   const dispatch = useDispatch();
   const listOfPokemons = useSelector((state) => state.pokemonList.list);
+  const pokemonOne = useSelector((state) => state.pokemonData.pokemonOne);
 
   async function fetchPokemonData(url) {
     const pokemonData = await api.get(url);
@@ -23,20 +25,14 @@ function PokemonList(props) {
     <div>
       {/* <label htmlFor="pokemons">Choose First Pokemon!</label> */}
       {listOfPokemons && (
-        <select
-          onChange={(e) => fetchPokemonData(e.target.value)}
-          name="pokemons"
-          id="pokemons"
-        >
-          <option value="Pokemon one" hidden>
-            Pokemon one
-          </option>
-          {pokemonOptions}
-        </select>
+        <DropdownList
+          fetchPokemonData={fetchPokemonData}
+          pokemonOptions={pokemonOptions}
+        />
       )}
-      <PokemonInfo />
+      <PokemonInfo pokemon={pokemonOne} />
     </div>
   );
 }
 
-export default PokemonList;
+export default PokemonOne;

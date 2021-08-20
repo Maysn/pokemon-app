@@ -1,5 +1,11 @@
 body {
-    background-color: black;
-    color: white;
-    text-align: center;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+  align-items: center;
 }

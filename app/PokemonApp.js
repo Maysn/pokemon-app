@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./styles/PokemonApp";
 // import { fetchPokemon } from './store/addPokemon/addPokemonReducer';
 import { useDispatch, useSelector } from "react-redux";
-import PokemonList from "Containers/PokemonList";
 import { fetchList } from "Store/pokemonList/pokemonListReducer";
-import PokemonListTwo from "Containers/PokemonListTwo";
+import PokemonOne from "Containers/PokemonOne";
+import PokemonTwo from "Containers/PokemonTwo";
+import FightBtn from "Components/FIghtBtn";
 
 function PokemonApp() {
   // const [pokemonOne, setPokemonOne] = useState(null);
@@ -20,28 +21,38 @@ function PokemonApp() {
   // console.log(pokemonOne);
   return (
     <div>
-      {" "}
-      {!pokemonOne ? (
-        "LOADING..."
-      ) : (
-        <div>
-          <img
-            src={pokemonOne.sprites?.other["official-artwork"].front_default}
-          />
-          <PokemonList />
-          <img
-            src={pokemonTwo.sprites?.other["official-artwork"].front_default}
-          />
-          {/* <img src={pokemonOne.sprites.other.dream_world.front_default}/>
-                <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_shiny}/>
-                <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_default}/>
-                <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_shiny}/>
-                <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_default}/> */}
-          <PokemonListTwo />
+      <div className="wrapper">
+        <PokemonOne />
+        <div
+          style={{ fontSize: 70, color: "red", fontWeight: 700 }}
+          className="versus"
+        >
+          VS
         </div>
-      )}
+        <PokemonTwo />
+      </div>
+      <FightBtn pokemonOne={pokemonOne} pokemonTwo={pokemonTwo} />
     </div>
   );
 }
 
 export default PokemonApp;
+
+{
+  /* <img src={pokemonOne.sprites.other.dream_world.front_default} /> */
+}
+{
+  /* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_shiny}/> */
+}
+{
+  /* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_default}/> */
+}
+{
+  /* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_shiny}/> */
+}
+{
+  /* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_default}/> */
+}
+{
+  (" ");
+}
