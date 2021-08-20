@@ -13,29 +13,51 @@ function FightBtn({ pokemonOne, pokemonTwo }) {
     const secondPokemonHP =
       secondPokemon.stats[0].base_stat - firstPokemon.stats[1].base_stat;
 
-    const updatedFirstPokemon = {
-      ...firstPokemon,
-      stats: firstPokemon.stats.map((item) =>
-        item.stat.name === "hp" ? { ...item, base_stat: firstPokemonHP } : item
-      ),
-    };
-    const updatedSecondPokemon = {
-      ...secondPokemon,
-      stats: secondPokemon.stats.map((item) =>
-        item.stat.name === "hp" ? { ...item, base_stat: secondPokemonHP } : item
-      ),
-    };
+    setInFight(true);
+    console.log(inFight);
+    setTimeout(() => {
+      const updatedFirstPokemon = {
+        ...firstPokemon,
+        stats: firstPokemon.stats.map((item) =>
+          item.stat.name === "hp"
+            ? { ...item, base_stat: firstPokemonHP }
+            : item
+        ),
+      };
+      const updatedSecondPokemon = {
+        ...secondPokemon,
+        stats: secondPokemon.stats.map((item) =>
+          item.stat.name === "hp"
+            ? { ...item, base_stat: secondPokemonHP }
+            : item
+        ),
+      };
 
-    console.log(dispatch(fighting(updatedFirstPokemon, updatedSecondPokemon)));
+      console.log(
+        dispatch(fighting(updatedFirstPokemon, updatedSecondPokemon))
+      );
+      setInFight(false);
+      console.log(inFight);
+    }, 1000);
   };
   return (
     <div>
-      <button
-        onClick={() => fight(pokemonOne, pokemonTwo)}
-        style={{ backgroundColor: "black", color: "red" }}
-      >
-        <strong>FIGHT</strong>
-      </button>
+      {!inFight ? (
+        <button
+          onClick={() => fight(pokemonOne, pokemonTwo)}
+          style={{ backgroundColor: "black", color: "red" }}
+        >
+          <strong>FIGHT</strong>
+        </button>
+      ) : (
+        <button
+          disabled
+          onClick={() => fight(pokemonOne, pokemonTwo)}
+          style={{ backgroundColor: "white", color: "black" }}
+        >
+          <strong>FIGHT</strong>
+        </button>
+      )}
     </div>
   );
 }
