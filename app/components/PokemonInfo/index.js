@@ -1,14 +1,27 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 function PokemonInfo({ pokemon }) {
+  const fightingStatus = useSelector((state) => state.fightStatus.fighting);
   return (
     pokemon && (
       <div className="pokemon">
         <div className="pokemon__pic">
-          <img
-            style={{ width: 330, height: 330 }}
-            src={pokemon.sprites.other.dream_world.front_default}
-          />
+          {!fightingStatus ? (
+            <img
+              style={{ width: 330, height: 330 }}
+              // src={pokemon.sprites.versions["generation-iv"]["diamond-pearl"].front_default}
+              src={pokemon.sprites.other.dream_world.front_default}
+            />
+          ) : (
+            <img
+              style={{ width: 300, height: 300 }}
+              src={
+                pokemon.sprites.versions["generation-v"]["black-white"].animated
+                  .front_shiny
+              }
+            />
+          )}
         </div>
         <div className="pokemon__stats">
           <span>ATK {pokemon.stats[1].base_stat}</span>

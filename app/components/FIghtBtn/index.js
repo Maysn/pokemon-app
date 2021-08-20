@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fighting } from "Store/chosenPokemons/chosenPokemons";
+import { inFight, doneFight } from "Store/fightStatus";
 
 function FightBtn({ pokemonOne, pokemonTwo }) {
-  const [inFight, setInFight] = useState(false);
   const dispatch = useDispatch();
+  const fightStatus = useSelector((state) => state.fightStatus.fighting);
 
   const fight = (firstPokemon, secondPokemon) => {
     const firstPokemonHP =
@@ -13,8 +14,7 @@ function FightBtn({ pokemonOne, pokemonTwo }) {
     const secondPokemonHP =
       secondPokemon.stats[0].base_stat - firstPokemon.stats[1].base_stat;
 
-    setInFight(true);
-    console.log(inFight);
+    console.log(dispatch(inFight()));
     setTimeout(() => {
       const updatedFirstPokemon = {
         ...firstPokemon,
@@ -36,13 +36,12 @@ function FightBtn({ pokemonOne, pokemonTwo }) {
       console.log(
         dispatch(fighting(updatedFirstPokemon, updatedSecondPokemon))
       );
-      setInFight(false);
-      console.log(inFight);
-    }, 1000);
+      console.log(dispatch(doneFight()));
+    }, 3000);
   };
   return (
     <div>
-      {!inFight ? (
+      {!fightStatus ? (
         <button
           onClick={() => fight(pokemonOne, pokemonTwo)}
           style={{ backgroundColor: "black", color: "red" }}
@@ -53,7 +52,11 @@ function FightBtn({ pokemonOne, pokemonTwo }) {
         <button
           disabled
           onClick={() => fight(pokemonOne, pokemonTwo)}
-          style={{ backgroundColor: "white", color: "black" }}
+          style={{
+            backgroundColor: "black",
+            color: "white",
+            border: "grey 3px solid",
+          }}
         >
           <strong>FIGHT</strong>
         </button>
