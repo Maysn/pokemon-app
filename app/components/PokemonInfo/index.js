@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function PokemonInfo({ pokemon }) {
+function PokemonInfo({ pokemon, id }) {
   const fightingStatus = useSelector((state) => state.fightStatus.fighting);
   return (
     pokemon && (
@@ -9,12 +9,14 @@ function PokemonInfo({ pokemon }) {
         <div className="pokemon__pic">
           {!fightingStatus ? (
             <img
-              style={{ width: 330, height: 330 }}
+              className={id === 1 ? "flop" : ""}
+              style={{ width: 300, height: 300 }}
               // src={pokemon.sprites.versions["generation-iv"]["diamond-pearl"].front_default}
               src={pokemon.sprites.other.dream_world.front_default}
             />
           ) : (
             <img
+              className={id === 1 ? "flop" : ""}
               style={{ width: 300, height: 300 }}
               src={
                 pokemon.sprites.versions["generation-v"]["black-white"].animated

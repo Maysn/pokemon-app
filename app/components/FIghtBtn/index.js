@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fighting } from "Store/chosenPokemons/chosenPokemons";
 import { inFight, doneFight } from "Store/fightStatus";
+import { StyledButton } from "./styles";
 
 function FightBtn({ pokemonOne, pokemonTwo }) {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ function FightBtn({ pokemonOne, pokemonTwo }) {
       secondPokemon.stats[0].base_stat - firstPokemon.stats[1].base_stat;
 
     console.log(dispatch(inFight()));
+
     setTimeout(() => {
       const updatedFirstPokemon = {
         ...firstPokemon,
@@ -36,30 +38,28 @@ function FightBtn({ pokemonOne, pokemonTwo }) {
       console.log(
         dispatch(fighting(updatedFirstPokemon, updatedSecondPokemon))
       );
+
       console.log(dispatch(doneFight()));
-    }, 3000);
+    }, 5000);
   };
+
   return (
     <div>
       {!fightStatus ? (
-        <button
+        <StyledButton
+          className="pushable"
           onClick={() => fight(pokemonOne, pokemonTwo)}
-          style={{ backgroundColor: "black", color: "red" }}
         >
-          <strong>FIGHT</strong>
-        </button>
+          <span className="front">FIGHT</span>
+        </StyledButton>
       ) : (
-        <button
+        <StyledButton
           disabled
+          className="pushable"
           onClick={() => fight(pokemonOne, pokemonTwo)}
-          style={{
-            backgroundColor: "black",
-            color: "white",
-            border: "grey 3px solid",
-          }}
         >
-          <strong>FIGHT</strong>
-        </button>
+          <span className="front">FIGHT</span>
+        </StyledButton>
       )}
     </div>
   );

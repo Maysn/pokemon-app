@@ -3,19 +3,22 @@ import "./styles/PokemonApp";
 // import { fetchPokemon } from './store/addPokemon/addPokemonReducer';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchList } from "Store/pokemonList/pokemonListReducer";
-import PokemonOne from "Containers/PokemonOne";
-import PokemonTwo from "Containers/PokemonTwo";
-import FightBtn from "Components/FIghtBtn";
 import {
   draw,
   firstPokemonWins,
-  playAgain,
   secondPokemonWins,
 } from "Store/chosenPokemons/chosenPokemons";
+import { ThemeProvider } from "styled-components";
+import { themes } from "Styles/themes";
+import GlobalStyles from "Styles/GlobalStyles";
+import Winner from "Components/Winner";
+import Draw from "Components/Draw";
+import PreFight from "Components/PreFight";
+import Header from "Components/Header";
 
 function PokemonApp() {
   const dispatch = useDispatch();
-  // const [pokemonOne, setPokemonOne] = useState(null);
+  const [currentTheme, setCurrentTheme] = useState("darkTheme");
   const pokemonOne = useSelector((state) => state.pokemonData.pokemonOne);
   const pokemonTwo = useSelector((state) => state.pokemonData.pokemonTwo);
   const winner = useSelector((state) => state.pokemonData.winner);
@@ -26,63 +29,30 @@ function PokemonApp() {
   }, []);
 
   useEffect(() => {
-    if (
-      pokemonOne?.stats[0].base_stat <= 0 &&
-      pokemonTwo?.stats[0].base_stat <= 0
-    ) {
-      console.log(dispatch(draw()));
-    } else if (pokemonOne?.stats[0].base_stat <= 0) {
-      console.log(dispatch(secondPokemonWins(pokemonTwo)));
-    } else if (pokemonTwo?.stats[0].base_stat <= 0) {
-      console.log(dispatch(firstPokemonWins(pokemonOne)));
-    }
-    return console.log("FUCK YOU");
+    setTimeout(() => {
+      if (
+        pokemonOne?.stats[0].base_stat <= 0 &&
+        pokemonTwo?.stats[0].base_stat <= 0
+      ) {
+        dispatch(draw());
+      } else if (pokemonOne?.stats[0].base_stat <= 0) {
+        dispatch(secondPokemonWins(pokemonTwo));
+      } else if (pokemonTwo?.stats[0].base_stat <= 0) {
+        dispatch(firstPokemonWins(pokemonOne));
+      }
+    }, 3000);
   }, [pokemonOne, pokemonTwo]);
-  // console.log(pokemonOne);
+
   return (
-    <div>
-      {!winner ? (
-        <div>
-          <div className="wrapper">
-            <PokemonOne />
-            <div
-              style={{ fontSize: 70, color: "red", fontWeight: 700 }}
-              className="versus"
-            >
-              VS
-            </div>
-            <PokemonTwo />
-          </div>
-          <FightBtn pokemonOne={pokemonOne} pokemonTwo={pokemonTwo} />
+    <ThemeProvider theme={themes[currentTheme]}>
+      <GlobalStyles />
+      <div>
+        <Header currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
+        <div className="main">
+          {!winner ? <PreFight /> : winner === "DRAW" ? <Draw /> : <Winner />}
         </div>
-      ) : winner === "DRAW" ? (
-        <div>
-          <h1>DRAW!</h1>
-          <button
-            onClick={() => dispatch(playAgain())}
-            style={{ backgroundColor: "black", color: "red" }}
-          >
-            PLAY AGAIN
-          </button>
-        </div>
-      ) : (
-        <div>
-          <div>
-            <h1>{winner.name.toUpperCase()} WINS!</h1>
-            <img
-              src={winner.sprites.other.dream_world.front_default}
-              alt="WINNER"
-            />
-          </div>
-          <button
-            onClick={() => dispatch(playAgain())}
-            style={{ backgroundColor: "black", color: "red" }}
-          >
-            PLAY AGAIN
-          </button>
-        </div>
-      )}
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
 

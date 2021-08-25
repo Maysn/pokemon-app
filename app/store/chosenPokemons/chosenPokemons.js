@@ -42,22 +42,29 @@ export default function pokemonDataReducer(state = initialState, action) {
   switch (action.type) {
     case PICKED_POKEMON_ONE:
       return { ...state, pokemonOne: action.pokemonOneData };
+
     case PICKED_POKEMON_TWO:
       return { ...state, pokemonTwo: action.pokemonTwoData };
+
     case FIGHT:
       return {
         ...state,
         pokemonOne: action.updatedFirstPokemon,
         pokemonTwo: action.updatedSecondPokemon,
       };
+
     case FIRST_POKEMON:
       return { ...state, winner: action.payload };
+
     case SECOND_POKEMON:
       return { ...state, winner: action.payload };
+
     case DRAW:
       return { ...state, winner: "DRAW" };
+
     case PLAY_AGAIN:
       return { ...state, winner: null, pokemonOne: null, pokemonTwo: null };
+
     default:
       return state;
   }
