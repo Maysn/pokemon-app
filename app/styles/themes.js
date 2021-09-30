@@ -1,12 +1,14 @@
 export const themes = {
   darkTheme: {
-    bg: "#191919",
+    // bg: "#191919",
     text: "#FFFBFF",
     title: "#D64933",
     hp: "#3E885B",
     atk: "#4C86A8",
     ddl: "#8390FA",
     accents: "#798086",
+    bgimg: "./assets/peakpx1.jpg",
+    id: 1,
   },
   // darkTheme: {
   //   bg: "#191919",
@@ -24,12 +26,14 @@ export const themes = {
   //   atk: "#E3170A",
   // },
   lightTheme: {
-    bg: "#E7ECEF",
+    // bg: "#E7ECEF",
     text: "#1F271B",
     title: "#E89005",
     hp: "#4B7F52",
     atk: "#EC0B43",
     ddl: "#717744",
     accents: "#4C86A8",
+    bgimg: "./assets/arena.jpg",
+    id: 2,
   },
 };

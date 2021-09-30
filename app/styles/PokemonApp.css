@@ -3,12 +3,45 @@ body {
   color: white;
   text-align: center;
 }
-.wrapper {
-  display: flex;
-  justify-content: center;
-  height: 70vh;
-  align-items: center;
-}
+
 .flop {
   transform: scaleX(-1);
+}
+
+@keyframes leftfighting {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(75%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.left {
+  animation: leftfighting 1s ease-in 1s 2 alternate;
+}
+@keyframes rightfighting {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-75%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.right {
+  animation: rightfighting 1s ease-in 1s 2 alternate;
+  transition: animation 1s ease-in-out;
 }

@@ -3,18 +3,20 @@ import FirstPokemon from "Containers/FirstPokemon";
 import SecondPokemon from "Containers/SecondPokemon";
 import React from "react";
 import { useSelector } from "react-redux";
+import { StyledWrapper } from "./styles";
 
 function PreFight(props) {
   const pokemonOne = useSelector((state) => state.pokemonData.pokemonOne);
   const pokemonTwo = useSelector((state) => state.pokemonData.pokemonTwo);
+  const fightingStatus = useSelector((state) => state.fightStatus.fighting);
 
   return (
     <div>
-      <div className="wrapper">
+      <StyledWrapper>
         <FirstPokemon />
-        <div className="versus">VS</div>
+        {!fightingStatus && <div className="versus">VS</div>}
         <SecondPokemon />
-      </div>
+      </StyledWrapper>
       <FightBtn pokemonOne={pokemonOne} pokemonTwo={pokemonTwo} />
     </div>
   );

@@ -9,6 +9,7 @@ function FirstPokemon(props) {
   const dispatch = useDispatch();
   const listOfPokemons = useSelector((state) => state.pokemonList.list);
   const pokemonOne = useSelector((state) => state.pokemonData.pokemonOne);
+  const fightingStatus = useSelector((state) => state.fightStatus.fighting);
 
   async function fetchPokemonData(url) {
     const pokemonData = await api.get(url);
@@ -24,7 +25,7 @@ function FirstPokemon(props) {
   return (
     <div>
       {/* <label htmlFor="pokemons">Choose First Pokemon!</label> */}
-      {listOfPokemons && (
+      {listOfPokemons && !fightingStatus && (
         <DropdownList
           fetchPokemonData={fetchPokemonData}
           pokemonOptions={pokemonOptions}

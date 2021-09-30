@@ -45,16 +45,8 @@ function FightBtn({ pokemonOne, pokemonTwo }) {
 
   return (
     <div>
-      {!fightStatus ? (
+      {!fightStatus && (
         <StyledButton
-          className="pushable"
-          onClick={() => fight(pokemonOne, pokemonTwo)}
-        >
-          <span className="front">FIGHT</span>
-        </StyledButton>
-      ) : (
-        <StyledButton
-          disabled
           className="pushable"
           onClick={() => fight(pokemonOne, pokemonTwo)}
         >

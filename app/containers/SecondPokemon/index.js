@@ -9,6 +9,7 @@ function SecondPokemon(props) {
   const dispatch = useDispatch();
   const listOfPokemons = useSelector((state) => state.pokemonList.list);
   const pokemonTwo = useSelector((state) => state.pokemonData.pokemonTwo);
+  const fightingStatus = useSelector((state) => state.fightStatus.fighting);
 
   const pokemonOptions = listOfPokemons?.results.map((pokemon) => (
     <option key={pokemon.url} value={pokemon.url}>
@@ -23,7 +24,7 @@ function SecondPokemon(props) {
   return (
     <div>
       {/* <label htmlFor="pokemons">Choose second Pokemon!</label> */}
-      {listOfPokemons && (
+      {listOfPokemons && !fightingStatus && (
         <DropdownList
           fetchPokemonData={fetchPokemonData}
           pokemonOptions={pokemonOptions}

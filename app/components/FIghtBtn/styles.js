@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
+  margin-top: 2rem;
   &.pushable {
     /* background: hsl(340deg 100% 32%); */
     background: ${(props) => props.theme.accents};
