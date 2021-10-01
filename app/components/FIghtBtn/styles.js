@@ -20,7 +20,7 @@ export const StyledButton = styled.button`
     font-size: 1.25rem;
     /* background: hsl(345deg 100% 47%); */
     background: ${(props) => props.theme.title};
-    color: white;
+    color: ${(props) => props.theme.text};
     transform: translateY(-6px);
 
     @media only screen and (max-width: 480px) {
