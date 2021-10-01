@@ -5,9 +5,9 @@ export const StyledDropdown = styled.div`
     filter: drop-shadow(2px 4px 3px black);
     font-size: 13px;
     padding: 0.3rem;
-    background: ${(props) => props.theme.ddl};
+    background: ${(props) => props.theme.title};
     /* border: 1px solid #ccc; */
-    border: 1px solid ${(props) => props.theme.bg};
+    /* border: 1px solid ${(props) => props.theme.bg}; */
     border-radius: 6px;
     overflow: hidden;
     position: relative;
@@ -21,8 +21,10 @@ export const StyledDropdown = styled.div`
 
   .search_categories .select select {
     /* background: transparent; */
-    background-color: ${(props) => props.theme.ddl};
-    color: ${(props) => props.theme.bg};
+    background-color: ${(props) => props.theme.title};
+    /* color: ${(props) => props.theme.bg}; */
+    color: white;
+    text-align: center;
     line-height: 1;
     border: 0;
     padding: 0;

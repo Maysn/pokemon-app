@@ -45,7 +45,7 @@ export const ThemeSwitch = styled.div`
 
   input:checked + .slider {
     /* background-color: #2196f3; */
-    background-color: ${(props) => props.theme.accents};
+    background-color: ${(props) => props.theme.title};
   }
 
   input:focus + .slider {

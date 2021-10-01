@@ -14,3 +14,9 @@ export const StyledPokemonImg = styled.img`
     margin-top: 3rem;
   }
 `;
+
+export const StyledPokemonStats = styled.div`
+  & span {
+    filter: drop-shadow(3px 7px 3px black);
+  }
+`;

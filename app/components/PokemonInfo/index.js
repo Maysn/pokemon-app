@@ -1,6 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { StyledPokemonImg, StyledPokemonImgWrapper } from "./styles";
+import {
+  StyledPokemonImg,
+  StyledPokemonImgWrapper,
+  StyledPokemonStats,
+} from "./styles";
 
 function PokemonInfo({ pokemon, id }) {
   const fightingStatus = useSelector((state) => state.fightStatus.fighting);
@@ -27,11 +31,11 @@ function PokemonInfo({ pokemon, id }) {
           )}
         </StyledPokemonImgWrapper>
         {!fightingStatus && (
-          <div className="pokemon__stats">
+          <StyledPokemonStats>
             <span>ATK {pokemon.stats[1].base_stat}</span>
             <br />
             <span>HP {pokemon.stats[0].base_stat}</span>
-          </div>
+          </StyledPokemonStats>
         )}
       </div>
     )
