@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledDropdown = styled.div`
   .search_categories {
+    filter: drop-shadow(2px 4px 3px black);
     font-size: 13px;
     padding: 0.3rem;
     background: ${(props) => props.theme.ddl};

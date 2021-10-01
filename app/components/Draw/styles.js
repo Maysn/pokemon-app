@@ -23,7 +23,9 @@ export const StyledDrawImages = styled.img`
 export const StyledDrawHeader = styled.h1`
   margin-top: 3rem;
   font-size: 1.3rem;
-  color: white;
+  font-weight: bold;
+  filter: drop-shadow(2px 4px 3px black);
+  color: ${(props) => props.theme.title};
 
   @media only screen and (min-width: 769px) {
     font-size: 1.7rem;

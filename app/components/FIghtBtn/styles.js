@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledButton = styled.button`
   margin-top: 2rem;
+  filter: drop-shadow(2px 4px 3px black);
   &.pushable {
     /* background: hsl(340deg 100% 32%); */
     background: ${(props) => props.theme.accents};
@@ -15,6 +16,7 @@ export const StyledButton = styled.button`
     display: block;
     padding: 12px 42px;
     border-radius: 12px;
+    filter: drop-shadow(2px 4px 3px black);
     font-size: 1.25rem;
     /* background: hsl(345deg 100% 47%); */
     background: ${(props) => props.theme.title};

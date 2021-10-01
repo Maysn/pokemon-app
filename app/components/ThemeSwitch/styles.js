@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const ThemeSwitch = styled.div`
   margin-right: 1rem;
+  filter: drop-shadow(2px 4px 3px black);
+
   .switch {
     position: relative;
     display: inline-block;

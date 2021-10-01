@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 export const StyledWinnerH1 = styled.h1`
   font-size: 1.1rem;
+  font-weight: bold;
   margin-top: 5rem;
+  filter: drop-shadow(2px 4px 3px black);
+  color: ${(props) => props.theme.title};
 
   @media only screen and (min-width: 360px) {
     margin-top: 7rem;
