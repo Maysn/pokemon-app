@@ -10,4 +10,19 @@ export const StyledWrapper = styled.div`
   @media only screen and (min-width: 769px) {
     margin-top: 7rem;
   }
+  @media only screen and (min-height: 640px) {
+    margin-top: 7rem;
+  }
+  @media only screen and (min-height: 720px) {
+    margin-top: 9rem;
+  }
+  @media only screen and (min-height: 812px) {
+    margin-top: 11rem;
+  }
+  @media only screen and (min-height: 1024px) {
+    margin-top: 17rem;
+  }
+  @media only screen and (min-height: 1366px) {
+    margin-top: 21rem;
+  }
 `;
