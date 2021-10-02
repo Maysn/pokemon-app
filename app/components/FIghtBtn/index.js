@@ -41,7 +41,7 @@ function FightBtn({ pokemonOne, pokemonTwo }) {
         if (firstPokemonHP === updatedFirstPokemonHP) {
           clearInterval(intervalP1);
         }
-      }, 300);
+      }, 100);
 
       let intervalP2 = setInterval(() => {
         secondPokemonHP--;
@@ -60,7 +60,7 @@ function FightBtn({ pokemonOne, pokemonTwo }) {
         if (secondPokemonHP === updatedSecondPokemonHP) {
           clearInterval(intervalP2);
         }
-      }, 300);
+      }, 100);
 
       // console.log(
       //   dispatch(fighting(updatedFirstPokemon, updatedSecondPokemon))
