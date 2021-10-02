@@ -6,7 +6,7 @@ import { StyledHeader } from "./styles";
 function Header({ currentTheme, setCurrentTheme }) {
   return (
     <StyledHeader>
-      <h1 className="title">POKIMANE</h1>
+      <h1>POKIMANE</h1>
       <ThemeToggle
         className="toggle"
         currentTheme={currentTheme}

@@ -25,4 +25,13 @@ export const StyledWrapper = styled.div`
   @media only screen and (min-height: 1366px) {
     margin-top: 21rem;
   }
+
+  .versus {
+    color: whitesmoke;
+    filter: drop-shadow(2px 4px 3px black);
+
+    @media only screen and (min-width: 769px) {
+      font-size: 2rem;
+    }
+  }
 `;

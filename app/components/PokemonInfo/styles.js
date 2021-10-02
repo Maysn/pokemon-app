@@ -16,7 +16,19 @@ export const StyledPokemonImg = styled.img`
 `;
 
 export const StyledPokemonStats = styled.div`
+  background-color: black;
+  border-radius: 0.45rem;
+  padding: 0.3rem 0;
   & span {
     filter: drop-shadow(3px 7px 3px black);
+  }
+  .atk {
+    color: ${(props) => props.theme.atk};
+    font-weight: bold;
+    margin-right: 1.3rem;
+  }
+  .hp {
+    color: ${(props) => props.theme.hp};
+    font-weight: bold;
   }
 `;

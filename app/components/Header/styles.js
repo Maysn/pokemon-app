@@ -5,7 +5,7 @@ export const StyledHeader = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  .title {
+  & h1 {
     color: ${(props) => props.theme.title};
     margin-left: 1rem;
     font-size: 1.3rem;

@@ -32,9 +32,8 @@ function PokemonInfo({ pokemon, id }) {
         </StyledPokemonImgWrapper>
         {!fightingStatus && (
           <StyledPokemonStats>
-            <span>ATK {pokemon.stats[1].base_stat}</span>
-            <br />
-            <span>HP {pokemon.stats[0].base_stat}</span>
+            <span className="atk">ATK {pokemon.stats[1].base_stat}</span>
+            <span className="hp">HP {pokemon.stats[0].base_stat}</span>
           </StyledPokemonStats>
         )}
       </div>
