@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fighting } from "Store/chosenPokemons/chosenPokemons";
+import {
+  dmgCalc1,
+  dmgCalc2,
+  fighting,
+} from "Store/chosenPokemons/chosenPokemons";
 import { inFight, doneFight } from "Store/fightStatus";
 import { StyledButton } from "./styles";
 
@@ -9,38 +13,61 @@ function FightBtn({ pokemonOne, pokemonTwo }) {
   const fightStatus = useSelector((state) => state.fightStatus.fighting);
 
   const fight = (firstPokemon, secondPokemon) => {
-    const firstPokemonHP =
+    let firstPokemonHP = firstPokemon.stats[0].base_stat;
+    const updatedFirstPokemonHP =
       firstPokemon.stats[0].base_stat - secondPokemon.stats[1].base_stat;
 
-    const secondPokemonHP =
+    let secondPokemonHP = secondPokemon.stats[0].base_stat;
+    const updatedSecondPokemonHP =
       secondPokemon.stats[0].base_stat - firstPokemon.stats[1].base_stat;
 
     console.log(dispatch(inFight()));
 
     setTimeout(() => {
-      const updatedFirstPokemon = {
-        ...firstPokemon,
-        stats: firstPokemon.stats.map((item) =>
-          item.stat.name === "hp"
-            ? { ...item, base_stat: firstPokemonHP }
-            : item
-        ),
-      };
-      const updatedSecondPokemon = {
-        ...secondPokemon,
-        stats: secondPokemon.stats.map((item) =>
-          item.stat.name === "hp"
-            ? { ...item, base_stat: secondPokemonHP }
-            : item
-        ),
-      };
+      let intervalP1 = setInterval(() => {
+        firstPokemonHP--;
 
-      console.log(
-        dispatch(fighting(updatedFirstPokemon, updatedSecondPokemon))
-      );
+        const updatedFirstPokemon = {
+          ...firstPokemon,
+          stats: firstPokemon.stats.map((item) =>
+            item.stat.name === "hp"
+              ? { ...item, base_stat: firstPokemonHP }
+              : item
+          ),
+        };
+
+        dispatch(dmgCalc1(updatedFirstPokemon));
+
+        if (firstPokemonHP === updatedFirstPokemonHP) {
+          clearInterval(intervalP1);
+        }
+      }, 1);
+
+      let intervalP2 = setInterval(() => {
+        secondPokemonHP--;
+
+        const updatedSecondPokemon = {
+          ...secondPokemon,
+          stats: secondPokemon.stats.map((item) =>
+            item.stat.name === "hp"
+              ? { ...item, base_stat: secondPokemonHP }
+              : item
+          ),
+        };
+
+        dispatch(dmgCalc2(updatedSecondPokemon));
+
+        if (secondPokemonHP === updatedSecondPokemonHP) {
+          clearInterval(intervalP2);
+        }
+      }, 1);
+
+      // console.log(
+      //   dispatch(fighting(updatedFirstPokemon, updatedSecondPokemon))
+      // );
 
       console.log(dispatch(doneFight()));
-    }, 5000);
+    }, 7000);
   };
 
   return (

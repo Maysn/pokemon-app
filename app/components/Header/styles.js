@@ -10,7 +10,7 @@ export const StyledHeader = styled.div`
     margin-left: 1rem;
     font-size: 1.3rem;
     font-weight: bold;
-    font-family: "Pokemon Solid", sans-serif;
+    font-family: "Pokemon Solid", "Stylish", sans-serif;
     filter: drop-shadow(2px 4px 3px black);
 
     @media only screen and (min-width: 769px) {
