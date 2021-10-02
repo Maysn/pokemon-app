@@ -40,7 +40,7 @@ function PokemonApp() {
       } else if (pokemonTwo?.stats[0].base_stat <= 0) {
         dispatch(firstPokemonWins(pokemonOne));
       }
-    }, 3000);
+    }, 7000);
   }, [pokemonOne, pokemonTwo]);
 
   return (
