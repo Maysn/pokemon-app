@@ -42,7 +42,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: [path.resolve(ROOT_DIR, "app")],
+        // include: [path.resolve(ROOT_DIR, "app")],
         loader: ["style-loader", "css-loader"],
       },
       {

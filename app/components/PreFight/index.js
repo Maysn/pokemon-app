@@ -17,7 +17,7 @@ function PreFight(props) {
         {!fightingStatus && <div className="versus">VS</div>}
         <SecondPokemon />
       </StyledWrapper>
-      <FightBtn pokemonOne={pokemonOne} pokemonTwo={pokemonTwo} />
+      {/* <FightBtn pokemonOne={pokemonOne} pokemonTwo={pokemonTwo} /> */}
     </div>
   );
 }

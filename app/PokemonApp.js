@@ -15,6 +15,7 @@ import Winner from "Components/Winner";
 import Draw from "Components/Draw";
 import PreFight from "Components/PreFight";
 import Header from "Components/Header";
+import Cards from "Components/Cards";
 
 function PokemonApp() {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ function PokemonApp() {
         <div className="main">
           {!winner ? <PreFight /> : winner === "DRAW" ? <Draw /> : <Winner />}
         </div>
+        <Cards pokimone={pokemonOne} />
       </div>
     </ThemeProvider>
   );
@@ -58,21 +60,8 @@ function PokemonApp() {
 
 export default PokemonApp;
 
-{
-  /* <img src={pokemonOne.sprites.other.dream_world.front_default} /> */
-}
-{
-  /* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_shiny}/> */
-}
-{
-  /* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_default}/> */
-}
-{
-  /* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_shiny}/> */
-}
-{
-  /* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_default}/> */
-}
-{
-  (" ");
-}
+/* <img src={pokemonOne.sprites.other.dream_world.front_default} /> */
+/* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_shiny}/> */
+/* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_default}/> */
+/* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_shiny}/> */
+/* <img src={pokemonOne.sprites.versions["generation-v"]["black-white"].animated.front_default}/> */

@@ -25,12 +25,12 @@ function FirstPokemon(props) {
   return (
     <div>
       {/* <label htmlFor="pokemons">Choose First Pokemon!</label> */}
-      {listOfPokemons && !fightingStatus && (
+      {/* {listOfPokemons && !fightingStatus && (
         <DropdownList
           fetchPokemonData={fetchPokemonData}
           pokemonOptions={pokemonOptions}
         />
-      )}
+      )} */}
       <PokemonInfo id={1} pokemon={pokemonOne} />
     </div>
   );

@@ -24,12 +24,12 @@ function SecondPokemon(props) {
   return (
     <div>
       {/* <label htmlFor="pokemons">Choose second Pokemon!</label> */}
-      {listOfPokemons && !fightingStatus && (
+      {/* {listOfPokemons && !fightingStatus && (
         <DropdownList
           fetchPokemonData={fetchPokemonData}
           pokemonOptions={pokemonOptions}
         />
-      )}
+      )} */}
       <PokemonInfo id={2} pokemon={pokemonTwo} />
     </div>
   );
